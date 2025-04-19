@@ -23,7 +23,7 @@ const (
 	StatusFailed     = "failed"
 )
 
-func (s *Service) CreateTask(task *models.TaskRequest) (id string, err error) {
+func (s *Service) CreateTask(task *models.TaskData) (id string, err error) {
 	id = uuid.New().String()
 	err = s.repo.RegisterTask(id, task)
 	if err != nil {

@@ -27,7 +27,7 @@ func (r *Repository) Ping() error {
 	return nil
 }
 
-func (r *Repository) RegisterTask(id string, task *models.TaskRequest) (err error) {
+func (r *Repository) RegisterTask(id string, task *models.TaskData) (err error) {
 	ctx := context.TODO()
 	jsonB, err := json.Marshal(task)
 	if err != nil {

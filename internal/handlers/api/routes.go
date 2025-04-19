@@ -1,8 +1,8 @@
 package v1
 
 import (
+	"exec_flow/internal/handlers/api/v1/handlers"
 	"github.com/gofiber/fiber/v2"
-	"task_scheduler/internal/handlers/api/v1/handlers"
 )
 
 func Routes(app *fiber.App, handler *handlers.Handler) {

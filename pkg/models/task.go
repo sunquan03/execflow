@@ -1,19 +1,22 @@
 package models
 
-import "time"
-
-type TaskRequest struct {
+type TaskData struct {
 	TaskType string `json:"task_type"`
 	Payload  string `json:"payload"`
 	Priority int    `json:"priority"`
 	Deadline string `json:"deadline"`
 }
 
+type TaskResult struct {
+	ID  string
+	Res int
+	Err error
+}
+
+type TaskExec func(id, payload string) (res TaskResult)
+
 type Task struct {
-	ID       string    `json:"ID"`
-	TaskType string    `json:"task_type"`
-	Payload  string    `json:"payload"`
-	Priority int       `json:"priority"`
-	Deadline time.Time `json:"deadline"`
-	Status   string    `json:"status"`
+	ID   string
+	Exec TaskExec
+	TaskData
 }

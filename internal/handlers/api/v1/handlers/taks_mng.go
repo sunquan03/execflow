@@ -6,7 +6,7 @@ import (
 )
 
 func (h *Handler) CreateTask(ctx *fiber.Ctx) error {
-	var taskReq models.TaskRequest
+	var taskReq models.TaskData
 	if err := ctx.BodyParser(&taskReq); err != nil {
 		return ctx.Status(fiber.StatusBadRequest).JSON(models.Response{
 			Status:  "error",
